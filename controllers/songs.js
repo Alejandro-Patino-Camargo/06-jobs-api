@@ -67,7 +67,7 @@ const deleteSong = async (req, res) => {
     if (!songs) {
         throw new NotFoundError(`no song with the id ${songId}`)
     }
-    res.status(StatusCodes.OK).send()
+    res.status(StatusCodes.OK).json({ msg: "The entry was deleted." })
 }
 
 module.exports = {

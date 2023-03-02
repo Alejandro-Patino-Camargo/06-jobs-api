@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const data = await response.json();
                     if (response.status === 201) {
                         //successful create
-                        message.textContent = "The song entry was created.";
+                        message.textContent = "The song is in the queue.";
                         showing.style.display = "none";
                         thisEvent = new Event("startDisplay");
                         document.dispatchEvent(thisEvent);

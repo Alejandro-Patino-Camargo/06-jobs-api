@@ -22,14 +22,20 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please provide password'],
         minlength: 6,
+        match: [
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[0-9])[a-zA-Z\d]{6,}$/,
+            "Password must contain at least 6 characters, including an upper case letter and one number",
+        ]
     },
 })
 
+// Encrypt password using bcrypt
 UserSchema.pre('save', async function () {
     const salt = await bcrypt.genSalt(10)
     this.password = await bcrypt.hash(this.password, salt)
 })
 
+// Sign JWT and return
 UserSchema.methods.createJWT = function () {
     return jwt.sign(
         { userId: this._id, name: this.name },
@@ -40,6 +46,7 @@ UserSchema.methods.createJWT = function () {
     )
 }
 
+// Match user entered password to hashed password in database
 UserSchema.methods.comparePassword = async function (canditatePassword) {
     const isMatch = await bcrypt.compare(canditatePassword, this.password)
     return isMatch

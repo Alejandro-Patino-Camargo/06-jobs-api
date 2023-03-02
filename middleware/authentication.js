@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken')
 const { UnauthenticatedError } = require('../errors')
 
-const auth = async (req, res, next) => {
+// middleware to check if the user is authenticated
+const authenticateUser = async (req, res, next) => {
     // check header
     const authHeader = req.headers.authorization
     if (!authHeader || !authHeader.startsWith('Bearer')) {
@@ -19,4 +20,4 @@ const auth = async (req, res, next) => {
     }
 }
 
-module.exports = auth
+module.exports = authenticateUser;

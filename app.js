@@ -41,11 +41,11 @@ store.on("error", function (error) {
 //   store: store,
 //   cookie: { secure: false, sameSite: "strict" },
 // };
-if (app.get("env") === "production") {
-  //SECURITY
-  app.set("trust proxy", 1);
-  session_parms.cookie.secure = true;
-}
+// if (app.get("env") === "production") {
+//   //SECURITY
+//   app.set("trust proxy", 1);
+//   session_parms.cookie.secure = true;
+// }
 // app.use(session(session_parms));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('./public'))

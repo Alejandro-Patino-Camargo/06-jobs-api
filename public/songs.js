@@ -1,3 +1,5 @@
+
+// section 1
 async function buildsongTable(songTable, songTabelHeader, token, message) {
     try {
         const response = await fetch("/api/v1/songs", {
@@ -102,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // section 3
 
-
     document.addEventListener("click", async (e) => {
         if (suspendInput) {
             return; // we don't want to act on buttons while doing async operations
@@ -151,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 const data = await response.json();
                 if (response.status === 200) {
-                    message.textContent = `Logon successful.  Welcome ${data.user.name}`;
+                    message.textContent = `Log in was successful.  Welcome ${data.user.name}`;
                     token = data.token;
                     localStorage.setItem("token", token);
                     showing.style.display = "none";
@@ -285,7 +286,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         message.textContent = data.msg;
                     }
                 } catch (err) {
-
                     message.textContent = "A communication error occurred.";
                 }
             }
@@ -323,9 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             suspendInput = false;
         }   // section 6
-
-        // TODO: add code to handle delete button
-
+        /** delete function */
         else if (e.target.classList.contains("deleteButton")) {
             editSong.dataset.id = e.target.dataset.id;
             suspendInput = true;
@@ -339,15 +337,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 const data = await response.json();
                 if (response.status === 200) {
-                    message.textContent = "The entry was deleted.";
-                    artist.value = data.song.artist;
-                    song.value = data.song.song;
-                    genre.value = data.song.genre;
+                    message.textContent = data.msg;
                     showing.style.display = "none";
-                    showing = editSong;
-                    showing.style.display = "block";
-                    addingSong.textContent = "update";
-                    message.textContent = "";
+                    thisEvent = new Event("startDisplay");
+                    document.dispatchEvent(thisEvent);
                 } else {
                     // might happen if the list has been updated since last display
                     message.textContent = "The songs entry was not found";
@@ -358,8 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 message.textContent = "A communications error has occurred.";
             }
             suspendInput = false;
-        }   // section 8 after this line
-
+        }   // section 7 after this line
     })
 });
 

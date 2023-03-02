@@ -39,7 +39,7 @@ const updateSong = async (req, res) => {
 
     /* validating inputs */
     if (artist === '' || song === '') {
-        throw new BadRequestError('Artist or Songn fields cannot be empty')
+        throw new BadRequestError('Artist or song fields cannot be empty')
     }
     const songs = await Song.findByIdAndUpdate({
         _id: songId, createdBy: userId
@@ -67,7 +67,7 @@ const deleteSong = async (req, res) => {
     if (!songs) {
         throw new NotFoundError(`no song with the id ${songId}`)
     }
-    res.status(StatusCodes.OK).json({ msg: "The entry was deleted." })
+    res.status(StatusCodes.OK).json({ msg: "The song was deleted." })
 }
 
 module.exports = {

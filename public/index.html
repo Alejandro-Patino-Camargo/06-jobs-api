@@ -11,10 +11,10 @@
 
 <body>
     <h1>Songs List</h1>
-    <button type="button" id="logoff" style="display:none;">logoff</button>
     <p id="message"></p>
+
     <div id="logon-register" style="display:none;">
-        <button type="button" id="logon">logon</button>
+        <button type="button" id="logon">log on</button>
         <button type="button" id="register">register</button>
     </div>
     <div id="logon-div" style="display:none;">
@@ -27,7 +27,7 @@
                 <label for="password">password:</label>
                 <input type="password" id="password">
             </div>
-            <button type="button" id="logon-button">logon</button>
+            <button type="button" id="logon-button">log on</button>
             <button type="button" id="logon-cancel">cancel</button>
         </form>
     </div>
@@ -53,7 +53,8 @@
             <button type="button" id="register-cancel">cancel</button>
         </form>
     </div>
-    <div id="songs" style="display:none;">
+    <!-- main dashboard listing all songs  -->
+    <div id="songs" style="display:none;"> 
         <p id="song-Message"></p>
         <table id="song-table" style="display:none;">
             <tr id="song-table-header">
@@ -68,19 +69,23 @@
     <div id="edit-song" style="display:none;">
         <form>
             <div>
-                <label for="artist">artist:</label>
+                <label for="artist">Artist:</label>
                 <input type="text" id="artist">
             </div>
             <div>
-                <label for="song">song:</label>
+                <label for="song">Song:</label>
                 <input type="text" id="song">
             </div>
             <div>
-                <label for="genre">genre:</label>
+                <label for="genre">Genre:</label>
                 <select id="genre">
                     <option value="R&B">R&B</option>
                     <option value="Hip-Hop">Hip-Hop</option>
                     <option value="Rock">Rock</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Country">Country</option>
+                    <option value="K-Pop">K-Pop</option>
+                    <option value="Classical">Classical</option>
                     <option value="other">other</option>
                 </select>
             </div>
@@ -88,6 +93,7 @@
             <button type="button" id="edit-cancel">cancel</button>
         </form>
     </div>
+    <button type="button" id="logoff" style="display:none;">log off</button>
     <script src="./songs.js"></script>
 </body>
 

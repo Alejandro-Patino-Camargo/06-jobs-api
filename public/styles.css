@@ -7,7 +7,7 @@ body {
     background-color: #f2f2f2;
 }
 
-/* Set the font to Verdana and increase the overall font size by 3 points */
+/* Set the font to Roboto Mono and increase the overall font size by 3 points */
 html,
 body {
     font-family: 'Roboto Mono', monospace;
@@ -31,6 +31,9 @@ main {
 }
 
 /* Change the blue to a leaf green */
+
+
+
 button,
 input[type="text"],
 input[type="email"],
@@ -39,9 +42,9 @@ select {
     color: #333;
     font-size: 18px;
     font-weight: bold;
-    padding: 14px;
+    padding: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     background-color: #60bf6c;
 }
 
@@ -50,7 +53,8 @@ button {
     margin-right: 10px;
 }
 
-/* Make all buttons the same size */
+
+/* logoff buttons */
 #logoff,
 input[type="submit"],
 button[type="submit"] {
@@ -84,8 +88,16 @@ label {
     color: #555;
 }
 
+table {
+    border-spacing: 25px;
+}
+
+th {
+    text-align: left;
+}
+
 #song-table {
-    margin: 0 auto;
+    margin-left: 10px;
 }
 
 /* Add some space between form elements */
@@ -93,15 +105,15 @@ form>* {
     margin-bottom: 20px;
 }
 
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
 select {
     font-size: 18px;
     font-weight: bold;
-    padding: 14px;
+    padding: 20px;
     border: none;
-    border-radius: 4px;
     background-color: #f8f8f8;
 }
 
@@ -111,6 +123,11 @@ input[type="password"]:focus,
 select:focus {
     outline: none;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+#email {
+
+    margin-left: 35px;
 }
 
 input[type="submit"],
@@ -126,6 +143,31 @@ button[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
+/* song list dashboard  */
+#songs {
+    background-color: rgb(224, 224, 224);
+    border-radius: 10px;
+    padding: 1rem;
+    padding-bottom: 40px;
+}
+
+/* song request form */
+#edit-song {
+    background-color: rgb(224, 224, 224);
+    border-radius: 10px;
+    padding: 1rem;
+    padding-bottom: 30px;
+}
+
+
+#song {
+    margin-left: 1rem;
+}
+
+#genre {
+    margin-left: 10px;
+}
+
 /* Add some space between form elements */
 form>*:last-child {
     margin-bottom: 0;
@@ -136,8 +178,4 @@ button[type="submit"]:hover {
     background-color: #555;
 }
 
-/* Changes made below */
-#song-table td:nth-child(1) {
-    color: black;
-}
-
+/* Change the color and add margin to first column

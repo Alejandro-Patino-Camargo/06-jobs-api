@@ -34,21 +34,20 @@ store.on("error", function (error) {
 });
 
 /* session set-up - proxies and cookies*/
-const session_parms = {
-  secret: process.env.SESSION_SECRET,
-  resave: true,
-  saveUninitialized: true,
-  store: store,
-  cookie: { secure: false, sameSite: "strict" },
-};
+// const session_parms = {
+//   secret: process.env.SESSION_SECRET,
+//   resave: true,
+//   saveUninitialized: true,
+//   store: store,
+//   cookie: { secure: false, sameSite: "strict" },
+// };
 if (app.get("env") === "production") {
   //SECURITY
   app.set("trust proxy", 1);
   session_parms.cookie.secure = true;
 }
-
+// app.use(session(session_parms));
 app.use(express.urlencoded({ extended: false }));
-app.use(session(session_parms));
 app.use(express.static('./public'))
 app.use(express.json());
 

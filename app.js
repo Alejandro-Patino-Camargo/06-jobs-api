@@ -3,7 +3,6 @@ require('dotenv').config();
 const express = require('express');
 require('express-async-errors');
 const session = require('express-session');
-const flash = require("connect-flash");
 const MongoDBStore = require("connect-mongodb-session")(session);
 
 /* extra security packages */
@@ -52,7 +51,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session(session_parms));
 app.use(express.static('./public'))
 app.use(express.json());
-app.use(flash());
 
 /* server protection - request overload */
 app.use(
